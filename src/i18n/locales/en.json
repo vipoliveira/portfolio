@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "This is Vinicius.",
+    "subtitle": "I'm a UX designer with a passion for creating intuitive and beautiful digital experiences. I focus on human-centered design to solve complex problems and create meaningful connections.",
+    "viewExperience": "View My Experience",
+    "getInTouch": "Get in Touch",
+    "approach": {
+      "title": "My Approach",
+      "description": "I believe in creating experiences that are not just visually appealing but also functional and accessible. My design process is rooted in understanding user needs and behaviors, ensuring that every interaction serves a purpose and adds value to the user's journey."
+    }
+  },
+  "work": {
+    "title": "Work",
+    "projects": {
+      "title": "Selected Projects",
+      "viewProject": "View Project"
+    }
+  },
+  "contact": {
+    "title": "",
+    "getInTouch": {
+      "title": "Get in Touch",
+      "description": "I'm always interested in hearing about new projects and opportunities. Feel free to reach out if you'd like to connect!"
+    },
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send Message",
+      "placeholders": {
+        "name": "Your name",
+        "email": "your.email@example.com",
+        "message": "Your message"
+      }
+    }
+  }
+} 
