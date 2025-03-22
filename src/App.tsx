@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { I18nextProvider } from 'react-i18next';
+import styled from 'styled-components';
 import i18n from './i18n';
 import theme from './theme';
 import GlobalStyle from './styles/GlobalStyle';
@@ -29,11 +30,7 @@ function App() {
           <GoogleAnalytics />
           <AppContainer>
             <Navbar />
-            <MainContent
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <MainContent>
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/work" element={<Work />} />
