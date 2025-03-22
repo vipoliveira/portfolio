@@ -7,14 +7,21 @@ declare global {
   }
 }
 
+const GA_ID = import.meta.env.VITE_GA_ID;
+
 const GoogleAnalytics = () => {
   const location = useLocation();
 
   useEffect(() => {
+    if (!GA_ID) {
+      console.warn('Google Analytics ID not found. Analytics will not be tracked.');
+      return;
+    }
+
     // Initialize Google Analytics
     const script = document.createElement('script');
     script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`; // Replace with your GA4 measurement ID
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
     document.head.appendChild(script);
 
     window.dataLayer = window.dataLayer || [];
@@ -23,7 +30,7 @@ const GoogleAnalytics = () => {
     };
 
     // Track page views
-    window.gtag('config', 'G-XXXXXXXXXX', { // Replace with your GA4 measurement ID
+    window.gtag('config', GA_ID, {
       page_path: location.pathname,
       send_page_view: true
     });

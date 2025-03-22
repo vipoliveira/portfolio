@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { useEffect, useState } from 'react';
+import engdbLogo from '../assets/engdb-logo.svg';
+import uolLogo from '../assets/logo-uol.avif';
 
 const FooterContainer = styled.footer`
   position: fixed;
@@ -77,12 +79,12 @@ const Footer = () => {
     { name: 'ScientifCloud', logo: 'https://s-c.ai/img/scientific_logao_redux.png'},
     { name: 'XPInc', logo: 'https://upload.wikimedia.org/wikipedia/pt/0/0b/XP_Investimentos_logo.png' },
     { name: 'AtSaude', logo: 'https://atsaude.com.br/wp-content/themes/atsaude/assets/images/logoats.png' },
-    { name: 'Engineering do Brasil', logo: 'src/assets/engdb-logo.svg' },
+    { name: 'Engineering do Brasil', logo: engdbLogo },
     { name: 'TIM', logo: 'https://logopng.com.br/logos/tim-25.png' },
     { name: 'AkzoNobel', logo: 'https://plan.org.br/wp-content/uploads/2018/09/akzonobel.png' },
     { name: 'Amaro', logo: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Amaro_logo.png' },
     { name: 'Banco BV', logo: 'https://blu365.com.br/blog/wp-content/uploads/sites/4/2020/07/Logo_sem_banco_Digital-1.png' },
-    { name: 'UOL', logo: 'src/assets/logo-uol.avif' }
+    { name: 'UOL', logo: uolLogo }
   ];
 
   const [translateX, setTranslateX] = useState(0);
