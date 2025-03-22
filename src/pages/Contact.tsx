@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FaLinkedin, FaGithub, FaEnvelope, FaXTwitter } from 'react-icons/fa6';
 import { FaTelegram } from 'react-icons/fa';
 import myselfImage from '../assets/myself.jpeg';
+import { useState } from 'react';
 
 const ContactContainer = styled.div`
   padding: 6rem 2rem 2rem;
@@ -19,19 +20,46 @@ const PageTitle = styled.h1`
   margin-bottom: 3rem;
   position: relative;
   z-index: 2;
+  font-family: 'Inter', sans-serif;
+`;
+
+const BackgroundImage = styled.div<{ isHovered: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(${myselfImage});
+  background-size: 120% auto;
+  background-position: 100% center;
+  background-repeat: no-repeat;
+  filter: ${props => props.isHovered ? 'grayscale(0%)' : 'grayscale(100%)'};
+  transition: filter 0.3s ease;
+  z-index: 0;
+  opacity: 0.85;
+  transform: scaleX(-1);
+
+  @media (max-width: 768px) {
+    background-size: 150% auto;
+    background-position: 15% center;
+    opacity: 0.1;
+  }
 `;
 
 const ContactSection = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 4rem;
   margin-bottom: 4rem;
   position: relative;
   z-index: 2;
+  padding-left: 4rem;
+  min-height: 400px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 2rem;
+    padding-left: 0;
   }
 `;
 
@@ -40,29 +68,54 @@ const ContactInfo = styled.div`
   flex-direction: column;
   gap: 2rem;
   max-width: 500px;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 2rem;
+  background-color: transparent;
+  padding: 3rem;
   border-radius: 8px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  margin-left: -8rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: transparent;
+
+  &:hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 
 const ContactTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
   color: #000000;
+  letter-spacing: -0.5px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
 `;
 
 const ContactDescription = styled.p`
-  color: #333333;
-  line-height: 1.6;
-  margin-bottom: 2rem;
+  color: #000000;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 400px;
+  font-family: 'Inter', sans-serif;
 `;
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 1.5rem;
+  gap: 1.2rem;
+  margin-top: 1rem;
+  justify-content: center;
+  width: 100%;
 `;
 
 const SocialLink = styled.a`
@@ -72,15 +125,17 @@ const SocialLink = styled.a`
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background-color: #f0f0f0;
-  color: #666666;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #000000;
   transition: all 0.3s ease;
   text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   &:hover {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
   svg {
@@ -89,42 +144,20 @@ const SocialLink = styled.a`
   }
 `;
 
-const BackgroundImage = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(${myselfImage});
-  background-size: 120% auto;
-  background-position: 0% center;
-  background-repeat: no-repeat;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
-  z-index: 0;
-  opacity: 0.85;
-
-  &:hover {
-    filter: grayscale(0%);
-  }
-
-  @media (max-width: 768px) {
-    background-size: 150% auto;
-    background-position: 85% center;
-    opacity: 0.75;
-  }
-`;
-
 const Contact = () => {
   const { t } = useTranslation();
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
-      <BackgroundImage />
+      <BackgroundImage isHovered={isHovered} />
       <ContactContainer>
         <PageTitle>{t('contact.title')}</PageTitle>
         <ContactSection>
-          <ContactInfo>
+          <ContactInfo 
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
             <div>
               <ContactTitle>{t('contact.getInTouch.title')}</ContactTitle>
               <ContactDescription>{t('contact.getInTouch.description')}</ContactDescription>

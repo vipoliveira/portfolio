@@ -1,22 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import styled from '@emotion/styled';
-import { motion } from 'framer-motion';
+import { ThemeProvider } from 'styled-components';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './i18n';
+import theme from './theme';
+import GlobalStyle from './styles/GlobalStyle';
+import AppContainer from './styles/AppContainer';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Work from './pages/Work';
+import Resume from './pages/Resume';
 import Contact from './pages/Contact';
-import './i18n';
+import GoogleAnalytics from './components/GoogleAnalytics';
 
-const AppContainer = styled.div`
-  min-height: 100vh;
-  color: #333333;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 104px; /* Height of the larger footer */
-`;
-
-const MainContent = styled(motion.main)`
+const MainContent = styled.main`
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -25,23 +22,30 @@ const MainContent = styled(motion.main)`
 
 function App() {
   return (
-    <Router>
-      <AppContainer>
-        <Navbar />
-        <MainContent
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/work" element={<Work />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </MainContent>
-        <Footer />
-      </AppContainer>
-    </Router>
+    <I18nextProvider i18n={i18n}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Router>
+          <GoogleAnalytics />
+          <AppContainer>
+            <Navbar />
+            <MainContent
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/work" element={<Work />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </MainContent>
+            <Footer />
+          </AppContainer>
+        </Router>
+      </ThemeProvider>
+    </I18nextProvider>
   );
 }
 

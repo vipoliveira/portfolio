@@ -1,21 +1,21 @@
 {
   "nav": {
     "home": "Início",
-    "work": "Trabalhos",
+    "work": "Trabalho",
     "contact": "Contato"
   },
   "home": {
-    "title": "Aqui é o Vinicius.",
-    "subtitle": "Sou um designer de UX com paixão por criar experiências digitais intuitivas e bonitas. Me foco em design centrado no ser humano para resolver problemas complexos e criar conexões significativas.",
+    "title": "Este é o Vinicius.",
+    "subtitle": "Sou um engenheiro de software e dados que resolve problemas reais usando tecnologia.",
     "viewExperience": "Ver Minha Experiência",
     "getInTouch": "Entre em Contato",
     "approach": {
       "title": "Minha Abordagem",
-      "description": "Acredito em criar experiências que não são apenas visualmente atraentes, mas também funcionais e acessíveis. Meu processo de design está enraizado no entendimento das necessidades e comportamentos dos usuários, garantindo que cada interação tenha um propósito e agregue valor à jornada do usuário."
+      "description": "Acredito que a tecnologia deve ser usada para resolver problemas reais. Abordo cada projeto com foco em usabilidade, escalabilidade e manutenibilidade."
     }
   },
-  "work": {
-    "title": "Trabalhos",
+  "resume": {
+    "title": "Currículo",
     "projects": {
       "title": "Projetos Selecionados",
       "viewProject": "Ver Projeto"
@@ -25,19 +25,7 @@
     "title": "",
     "getInTouch": {
       "title": "Entre em Contato",
-      "description": "Sempre estou interessado em ouvir sobre novos projetos e oportunidades. Sinta-se à vontade para entrar em contato se quiser conversar!"
-    },
-    "form": {
-      "title": "Envie uma Mensagem",
-      "name": "Nome",
-      "email": "Email",
-      "message": "Mensagem",
-      "send": "Enviar Mensagem",
-      "placeholders": {
-        "name": "Seu nome",
-        "email": "seu.email@exemplo.com",
-        "message": "Sua mensagem"
-      }
+      "description": "Sempre estou interessado em conhecer novos projetos e oportunidades. Sinta-se à vontade para entrar em contato se quiser conversar!"
     }
   }
 } 
